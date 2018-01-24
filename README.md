@@ -30,4 +30,6 @@ It's very important that you plan your project before you start writing any code
 * Add the functionality to handle clicks. This should reveal the hidden side of each card.
 * Work on the matching logic. How does your game "know" if a player guesses correctly or incorrectly?
 * Work on the winning condition. How does your game “know” if a player has won?
-We recommend saving styling until the very end. Allow your game logic and functionality to dictate the styling.
+We recommend saving styling until the very end. Allow your game logic and functionality to dictate the styling.  
+
+How the game will be evaluated: https://review.udacity.com/#!/rubrics/591/view
