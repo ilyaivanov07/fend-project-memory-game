@@ -2,6 +2,32 @@
  * Create a list that holds all of your cards
  */
 
+let cardStyles = ['fa fa-diamond', 'fa fa-paper-plane-o', 'fa fa-anchor', 'fa fa-bolt', 'fa fa-cube', 'fa fa-anchor', 'fa fa-leaf', 
+'fa fa-bicycle', 'fa fa-diamond', 'fa fa-bomb', 'fa fa-leaf', 'fa fa-bomb', 'fa fa-bolt', 'fa fa-bicycle', 'fa fa-paper-plane-o', 'fa fa-cube'];
+ 
+function switchCard(obj) {
+	if (obj.className === "card") { // if closed, show the card
+		obj.className  = "card open show";
+	}
+	else { // close the card
+		obj.className  = "card";
+	}
+}
+
+
+function shuffleCards(array) {
+	cardStyles = shuffle(array);
+	
+    const cards = document.getElementsByClassName("card");
+    for (let i = 0; i < cards.length; i++) {
+        cards[i].firstChild.setAttribute("class", cardStyles[i]);
+    }		
+}
+ 
+ 
+function initGame() {
+	shuffleCards(cardStyles);
+} 
 
 /*
  * Display the cards on the page
@@ -36,3 +62,9 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+ 
+ // initialize the game
+ initGame();
+ 
+ 
+ 
