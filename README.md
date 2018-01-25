@@ -34,18 +34,8 @@ We recommend saving styling until the very end. Allow your game logic and functi
 
 How the game will be evaluated: https://review.udacity.com/#!/rubrics/591/view
 
-### Udacity Style Guides
-You should write your code and markup to meet the specifications provided in these style guides:
-
-* [CSS Style Guide](http://udacity.github.io/frontend-nanodegree-styleguide/css.html)
-* [HTML Style Guide](http://udacity.github.io/frontend-nanodegree-styleguide/index.html)
-* [JavaScript Style Guide](http://udacity.github.io/frontend-nanodegree-styleguide/javascript.html)
-* [Git Style Guide](https://udacity.github.io/git-styleguide/)
-
 
 ## Project Submission
-### How will this project be evaluated?
-Your project will be evaluated by a Udacity code reviewer according to the [Memory Game project rubric](https://review.udacity.com/#!/rubrics/591/view). Be sure to review it thoroughly before you submit. All criteria must "meet specifications" in order to pass.
 
 ### Submission Instructions
 1. Before submitting, make sure your code follows our style guidelines:
