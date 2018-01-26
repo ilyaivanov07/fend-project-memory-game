@@ -5,13 +5,48 @@
 let cardStyles = ['fa fa-diamond', 'fa fa-paper-plane-o', 'fa fa-anchor', 'fa fa-bolt', 'fa fa-cube', 'fa fa-anchor', 'fa fa-leaf', 
 'fa fa-bicycle', 'fa fa-diamond', 'fa fa-bomb', 'fa fa-leaf', 'fa fa-bomb', 'fa fa-bolt', 'fa fa-bicycle', 'fa fa-paper-plane-o', 'fa fa-cube'];
  
-function switchCard(obj) {
-	if (obj.className === "card") { // if closed, show the card
-		obj.className  = "card open show";
+
+let openedCard = null; // initialize this to null
+ 
+function switchCard(selectedCard) {
+
+	// if card is not displayed 
+	if (selectedCard.className === "card") { 
+		// display the card
+		selectedCard.className  = "card open show";
+		// if a card was selected before	
+		if (openedCard != null) {
+			// if cards match	
+			if (openedCard.firstChild.getAttribute("class") === selectedCard.firstChild.getAttribute("class"))	{
+				// display matched cards
+				openedCard.setAttribute("class", "card match");
+				selectedCard.setAttribute("class", "card match");
+			}
+			// if cards do not match
+			else {
+				let prevCard = openedCard;
+				window.setTimeout(function() { closeCards(selectedCard, prevCard); }, 500);
+			}
+			// reset opened card variable to null
+			openedCard = null;			
+		} // 'openedCard == null' means there was no previously opened card
+		else {
+			openedCard = selectedCard;
+		}
 	}
-	else { // close the card
-		obj.className  = "card";
-	}
+// we don't need this section	
+//	else { // close the card
+//		obj.className  = "card";
+//	}
+
+}
+
+
+function closeCards(selectedCard, prevCard) {
+	// close the selected card
+	selectedCard.setAttribute("class", "card");
+	// close the previously opened card
+	prevCard.setAttribute("class", "card");
 }
 
 
