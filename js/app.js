@@ -51,10 +51,10 @@ function switchCard(selectedCard) {
 		// if a card was selected before	
 		if (openedCard != null) {
 			// if cards match	
-			if (openedCard.firstChild.getAttribute("class") === selectedCard.firstChild.getAttribute("class"))	{
+			if (openedCard.firstChild.className === selectedCard.firstChild.className)	{
 				// display matched cards
-				openedCard.setAttribute("class", "card match");
-				selectedCard.setAttribute("class", "card match");
+				openedCard.className = "card match";
+				selectedCard.className = "card match";
 				matchCounter += 1;
 				
 				// check if game is finished 
@@ -82,9 +82,9 @@ function switchCard(selectedCard) {
 
 function closeCards(selectedCard, prevCard) {
 	// close the selected card
-	selectedCard.setAttribute("class", "card");
+	selectedCard.className = "card";
 	// close the previously opened card
-	prevCard.setAttribute("class", "card");
+	prevCard.className = "card";
 }
 
 
