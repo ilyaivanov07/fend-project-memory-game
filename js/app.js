@@ -7,8 +7,18 @@ let cardStyles = ['fa fa-diamond', 'fa fa-paper-plane-o', 'fa fa-anchor', 'fa fa
  
 
 let openedCard = null; // initialize this to null
+
+// timer variable is to show the time and to stop the timer when the game is finished
+let timer;
+
+// this is to count the number of matches to know if the game is finished
+let matchCounter = 0;
+
  
 function switchCard(selectedCard) {
+
+	// update the move counter 
+	document.getElementsByClassName("moves")[0].innerHTML = parseInt(document.getElementsByClassName("moves")[0].innerHTML) + 1;
 
 	// if card is not displayed 
 	if (selectedCard.className === "card") { 
@@ -21,6 +31,15 @@ function switchCard(selectedCard) {
 				// display matched cards
 				openedCard.setAttribute("class", "card match");
 				selectedCard.setAttribute("class", "card match");
+				matchCounter += 1;
+				
+				// check if game is finished 
+				if (matchCounter >= 8) {
+					alert('Game finished');
+					clearInterval(timer); // stop the timer 
+				} 
+				
+				console.log(matchCounter);
 			}
 			// if cards do not match
 			else {
@@ -34,11 +53,6 @@ function switchCard(selectedCard) {
 			openedCard = selectedCard;
 		}
 	}
-// we don't need this section	
-//	else { // close the card
-//		obj.className  = "card";
-//	}
-
 }
 
 
@@ -62,6 +76,10 @@ function shuffleCards(array) {
  
 function initGame() {
 	shuffleCards(cardStyles);
+	// time counter
+	timer = setInterval(function() { 
+		document.getElementsByClassName("timer")[0].innerHTML = parseInt(document.getElementsByClassName("timer")[0].innerHTML) + 1;
+	}  , 1000);
 } 
 
 /*
@@ -100,6 +118,4 @@ function shuffle(array) {
  
  // initialize the game
  initGame();
- 
- 
  
