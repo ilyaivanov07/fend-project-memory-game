@@ -16,10 +16,7 @@ Game displays the current number of moves a user has made.
 
 */
 
-/*
- * Create a list that holds all of your cards
- */
-
+// Create a list that holds all of your cards
 let cardStyles = ['fa fa-diamond', 'fa fa-paper-plane-o', 'fa fa-anchor', 'fa fa-bolt', 'fa fa-cube', 'fa fa-anchor', 'fa fa-leaf', 
 'fa fa-bicycle', 'fa fa-diamond', 'fa fa-bomb', 'fa fa-leaf', 'fa fa-bomb', 'fa fa-bolt', 'fa fa-bicycle', 'fa fa-paper-plane-o', 'fa fa-cube'];
  
@@ -39,10 +36,10 @@ function switchCard(selectedCard) {
 	document.getElementsByClassName("moves")[0].innerHTML = parseInt(document.getElementsByClassName("moves")[0].innerHTML) + 1;
 	let moves = parseInt(document.getElementsByClassName("moves")[0].innerHTML);
 	
+	// take care of stars 
 	if (moves === 5 || moves === 20) {
 		reduceStars();		
 	}
-	
 	
 	// if card is not displayed 
 	if (selectedCard.className === "card") { 
@@ -94,6 +91,7 @@ function reduceStars() {
     stars.innerHTML = starHTML.repeat(stars.children.length - 1); 
 }
 
+
 function shuffleCards(array) {
 	cardStyles = shuffle(array);
 	
@@ -112,12 +110,6 @@ function initGame() {
 	}  , 1000);
 } 
 
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
