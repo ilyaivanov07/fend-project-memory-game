@@ -34,9 +34,9 @@ function switchCard(selectedCard) {
 
 	// update the move counter 
 	document.getElementsByClassName("moves")[0].innerHTML = parseInt(document.getElementsByClassName("moves")[0].innerHTML) + 1;
-	let moves = parseInt(document.getElementsByClassName("moves")[0].innerHTML);
-	
+
 	// take care of stars 
+	let moves = parseInt(document.getElementsByClassName("moves")[0].innerHTML);
 	if (moves === 5 || moves === 20) {
 		reduceStars();		
 	}
@@ -56,7 +56,7 @@ function switchCard(selectedCard) {
 				
 				// check if game is finished 
 				if (matchCounter >= 8) {
-					alert('Game finished');
+					showModal();
 					clearInterval(timer); // stop the timer 
 				} 
 				
@@ -65,7 +65,7 @@ function switchCard(selectedCard) {
 			// if cards do not match
 			else {
 				let prevCard = openedCard;
-				window.setTimeout(function() { closeCards(selectedCard, prevCard); }, 500);
+				window.setTimeout(function() { closeCards(selectedCard, prevCard); }, 300);
 			}
 			// reset opened card variable to null
 			openedCard = null;			
@@ -106,10 +106,16 @@ function initGame() {
 	shuffleCards(cardStyles);
 	// time counter
 	timer = setInterval(function() { 
-		document.getElementsByClassName("timer")[0].innerHTML = parseInt(document.getElementsByClassName("timer")[0].innerHTML) + 1;
+		document.getElementsByClassName("timer")[0].innerHTML = parseInt(document.getElementsByClassName("moves")[0].innerHTML) + 1;
 	}  , 1000);
 } 
 
+
+function showModal() {
+	let modal = document.getElementsByClassName("modal")[0];
+	modal.innerHTML = "Congratulations!<br><br>Your final score: " + document.getElementsByClassName('moves')[0].innerHTML;
+	modal.className = "modal show";
+}
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -138,8 +144,10 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
  
- // initialize the game
- initGame();
+// initialize the game
+initGame();
+
+
  
  
  
